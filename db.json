@@ -2,19 +2,27 @@
   "products": [
     {
       "id": "1",
-      "titulo": "Livro 1",
-      "autor": "Autor do livro 1",
-      "ano": 2024,
-      "genero": "Gênero do livro 1",
-      "numeroPaginas": 10
+      "titulo": "Sherlock Holmes",
+      "autor": "Arthur Conan Doyle",
+      "ano": 1887,
+      "genero": "Mistério",
+      "numeroPaginas": 130
     },
     {
-      "id": "b893",
-      "titulo": "Livro 1",
-      "autor": "Teste",
-      "ano": 11,
-      "genero": "teste",
-      "numeroPaginas": 11
+      "id": "49fc",
+      "titulo": "O Hobbit",
+      "autor": "J. R. R. Tolkien",
+      "ano": 1937,
+      "genero": "Literatura Fantástica",
+      "numeroPaginas": 350
+    },
+    {
+      "id": "a427",
+      "titulo": "O Senhor dos Anéis",
+      "autor": "J. R. R. Tolkien",
+      "ano": 1940,
+      "genero": "Literatura Fantástica",
+      "numeroPaginas": 800
     }
   ]
 }

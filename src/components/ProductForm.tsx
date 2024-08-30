@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { createProduct, getProductById, updateProduct } from "../services/api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface Product {
   titulo: string;
@@ -53,9 +55,9 @@ function ProductForm() {
     setProduct({
       ...product,
       [e.target.name]:
-        e.target.type === "number"
-          ? parseFloat(e.target.value)
-          : e.target.value,
+          e.target.type === "number"
+              ? parseFloat(e.target.value)
+              : e.target.value,
     });
   };
 
@@ -65,72 +67,83 @@ function ProductForm() {
       try {
         if (id) {
           await updateProduct(id, product);
+          toast.success("Produto atualizado com sucesso!");
         } else {
           await createProduct(product);
+          toast.success("Produto criado com sucesso!");
         }
         navigate("/");
       } catch (error) {
-        console.error("Error saving product", error);
+        console.error("Erro ao salvar o produto", error);
+        toast.error("Erro ao salvar o produto.");
       }
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Título</label>
-        <input
-          type="text"
-          name="titulo"
-          value={product.titulo}
-          onChange={handleChange}
-        />
-        {errors.titulo && <p className="error">{errors.titulo}</p>}
-      </div>
-      <div>
-        <label>Autor</label>
-        <input
-          type="text"
-          name="autor"
-          value={product.autor}
-          onChange={handleChange}
-        />
-        {errors.autor && <p className="error">{errors.autor}</p>}
-      </div>
-      <div>
-        <label>Ano de publicação</label>
-        <input
-          type="number"
-          name="ano"
-          value={product.ano}
-          onChange={handleChange}
-        />
-        {errors.ano && <p className="error">{errors.ano}</p>}
-      </div>
-      <div>
-        <label>Gênero</label>
-        <input
-          type="text"
-          name="genero"
-          value={product.genero}
-          onChange={handleChange}
-        />
-        {errors.genero && <p className="error">{errors.genero}</p>}
-      </div>
-      <div>
-        <label>Número de páginas</label>
-        <input
-          type="number"
-          name="numeroPaginas"
-          value={product.numeroPaginas}
-          onChange={handleChange}
-        />
-        {errors.numeroPaginas && (
-          <p className="error">{errors.numeroPaginas}</p>
-        )}
-      </div>
-      <button type="submit">Salvar</button>
-    </form>
+      <>
+        <form onSubmit={handleSubmit} className="form-container">
+          <div className="form-group">
+            <label>Título</label>
+            <input
+                type="text"
+                name="titulo"
+                value={product.titulo}
+                onChange={handleChange}
+                className="form-input"
+            />
+            {errors.titulo && <p className="error">{errors.titulo}</p>}
+          </div>
+          <div className="form-group">
+            <label>Autor</label>
+            <input
+                type="text"
+                name="autor"
+                value={product.autor}
+                onChange={handleChange}
+                className="form-input"
+            />
+            {errors.autor && <p className="error">{errors.autor}</p>}
+          </div>
+          <div className="form-group">
+            <label>Ano de publicação</label>
+            <input
+                type="number"
+                name="ano"
+                value={product.ano}
+                onChange={handleChange}
+                className="form-input"
+            />
+            {errors.ano && <p className="error">{errors.ano}</p>}
+          </div>
+          <div className="form-group">
+            <label>Gênero</label>
+            <input
+                type="text"
+                name="genero"
+                value={product.genero}
+                onChange={handleChange}
+                className="form-input"
+            />
+            {errors.genero && <p className="error">{errors.genero}</p>}
+          </div>
+          <div className="form-group">
+            <label>Número de páginas</label>
+            <input
+                type="number"
+                name="numeroPaginas"
+                value={product.numeroPaginas}
+                onChange={handleChange}
+                className="form-input"
+            />
+            {errors.numeroPaginas && (
+                <p className="error">{errors.numeroPaginas}</p>
+            )}
+          </div>
+          <button type="submit" className="submit-button">Salvar</button>
+        </form>
+        <ToastContainer />
+      </>
   );
 }
 

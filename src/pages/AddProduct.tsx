@@ -1,10 +1,19 @@
 import ProductForm from "../components/ProductForm";
+import { FaArrowLeftLong } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+
 function AddProduct() {
-  return (
-    <div>
-      <h1>Adicionar novo produto</h1>
-      <ProductForm />
-    </div>
-  );
+    return (
+        <div className="product-container">
+            <div className="header">
+                <Link to="/">
+                    <FaArrowLeftLong className="icon" />
+                </Link>
+                <h1 className="title">Adicionar novo produto</h1>
+            </div>
+            <ProductForm />
+        </div>
+    );
 }
+
 export default AddProduct;

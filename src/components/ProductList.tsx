@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { getProducts, deleteProduct } from "../services/api";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 interface Product {
   id: string;
   titulo: string;
@@ -19,8 +22,14 @@ function ProductList() {
     setProducts(response.data);
   };
   const handleDelete = async (id: string) => {
-    await deleteProduct(id);
-    loadProducts();
+    try {
+      await deleteProduct(id);
+      loadProducts();
+      toast.success("Produto deletado com sucesso!");
+    } catch (e) {
+      console.error(e)
+      toast.error("Erro ao deletar o produto.");
+    }
   };
   return (
     <div className="book-list">
@@ -39,6 +48,7 @@ function ProductList() {
           </li>
         ))}
       </ul>
+      <ToastContainer />
     </div>
   );
 }
