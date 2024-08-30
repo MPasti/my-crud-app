@@ -1,0 +1,20 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "titulo": "Livro 1",
+      "autor": "Autor do livro 1",
+      "ano": 2024,
+      "genero": "Gênero do livro 1",
+      "numeroPaginas": 10
+    },
+    {
+      "id": "b893",
+      "titulo": "Livro 1",
+      "autor": "Teste",
+      "ano": 11,
+      "genero": "teste",
+      "numeroPaginas": 11
+    }
+  ]
+}
