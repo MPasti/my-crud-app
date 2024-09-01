@@ -27,7 +27,7 @@ function ProductList() {
       loadProducts();
       toast.success("Produto deletado com sucesso!");
     } catch (e) {
-      console.error(e)
+      console.error(e);
       toast.error("Erro ao deletar o produto.");
     }
   };
@@ -41,10 +41,12 @@ function ProductList() {
         {products.map((product) => (
           <li key={product.id}>
             {product.titulo} - {product.autor} - {product.ano}
-            <Link className="edit" to={`/edit/${product.id}`}>
-              Editar
-            </Link>
-            <button onClick={() => handleDelete(product.id)}>Deletar</button>
+            <div className="button-container">
+              <Link className="edit" to={`/edit/${product.id}`}>
+                Editar
+              </Link>
+              <button onClick={() => handleDelete(product.id)}>Deletar</button>
+            </div>
           </li>
         ))}
       </ul>
