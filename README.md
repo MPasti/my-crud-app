@@ -1,4 +1,4 @@
-# Projeto Book Store
+# <img src="./public/book.svg" alt="Book Store Logo" width="28" style="margin-top: 10px;"/> Projeto Book Store 
 Projeto criado utilizando Json Server para realização de operações de CRUD e simular uma API
 
 Esse projeto utiliza:
