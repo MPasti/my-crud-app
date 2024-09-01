@@ -14,3 +14,6 @@ Esse projeto utiliza:
 3. Rodar o Front-End com `npm run dev`
    
 Utiliza a versão `18.20.2` do **Node.Js**
+
+### Visual do projeto
+![Imagem do projeto](src/assets/images/image.png)
